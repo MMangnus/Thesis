@@ -167,3 +167,6 @@
 \vbadness=9000
 %\hbadness=9000
 
+
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
