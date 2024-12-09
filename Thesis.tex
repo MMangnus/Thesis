@@ -2,11 +2,13 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[twoside,openright,8.25pt,fleqn]{book}
+\documentclass[twoside,openright,12pt,fleqn]{book}
 %\special{papersize=210mm,297mm}
-\linespread{1.0} % Line spacing - Palatino needs more space between lines
+\linespread{1.15} % Line spacing - Palatino needs more space between lines
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 
+% leave 10pt blank space between paragraphs
+\usepackage[skip=10pt plus1pt, indent=0pt]{parskip}	
 
 % Used for blank pages
 \usepackage{afterpage}
@@ -30,10 +32,9 @@
 
 
 \usepackage{multicol} % Used for the two-column layout of the document
-\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage[hang, font=small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Horizontal rules in tables
 \usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
-\usepackage[colorlinks=true]{hyperref} % For hyperlinks in the PDF
 
 %\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
 \usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
@@ -52,6 +53,8 @@
 %\usepgfmodule{plot}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{setspace}
+
 
 \usepackage{amsmath}
 \usepackage{lmodern}
@@ -63,9 +66,13 @@
 \usepackage{geometry}
 \usepackage{nameref}
 \usepackage[finalnew]{Stylesheets/trackchanges}
+\usepackage[colorlinks=true]{hyperref} % For hyperlinks in the PDF
+
+% settings bibliography
+\usepackage[round]{natbib}
 
 % for figures: caption , subcaption
-\captionsetup[figure]{labelformat=simple, labelsep=colon, textfont=normalfont}
+\captionsetup[figure]{labelformat=simple, labelsep=colon, textfont=normalfont, font=footnotesize} %{stretch=1.1}
 %\captionsetup[table]{labelformat=simple, labelsep=colon, textfont=normalfont}
 %\captionsetup[subfigure]{labelformat=simple, labelsep=colon, textfont=normalfont}
 
@@ -86,7 +93,7 @@
 \author{
 \large
 %\textsc
-{Tim van Mourik$^1$}\\[2mm] % Your name
+{Margot Mangnus$^1$}\\[2mm] % Your name
 \small $^1$ Donders Institute for Brain, Cognition and Behaviour, Radboud University Nijmegen, The Netherlands\\ % Your institution
 %\normalsize \href{mailto:}{} % Your email address
 \vspace{-5mm}
@@ -99,8 +106,9 @@
 
 \renewcommand{\familydefault}{\sfdefault}
 %\usepackage[default,osfigures,scale=0.95]{Open Sans}
-%\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
 %\normalfont
+\usepackage[sfdefault]{AlegreyaSans} 
 
 \begin{document}
 \setlength{\parindent}{0.5pt}
@@ -111,28 +119,28 @@
 	\centering
 	\vspace{1cm}
 	\vspace{1.5cm}
-	{\huge\bfseries On the analysis of layer specific fMRI \par}	%into the cortical depths of the unknown
+	{\huge\bfseries When Communication is Hard: \\ Neurocognitive Dynamics underlying \\ Language and Communication \\in Autism and Social Anxiety \par}	%into the cortical depths of the unknown
 	\vspace{4cm}
-	{\Large by \\ Tim van Mourik\par}
+	{\Large by \\ Margot Mangnus \par}
 	\vfill
 \end{titlepage}
 
-\input{./Chapters/Titelpagina.tex}
+%\input{./Chapters/Titelpagina.tex}
 
 \afterpage{\blankpage}
 \include{./Chapters/01_Introduction/Introduction}
-\afterpage{\blankpage}
-\include{./Chapters/02_Registration/Registration}
-\afterpage{\blankpage}
-\include{./Chapters/03_GLM/GLM}
-\afterpage{\blankpage}
-\include{./Chapters/04_Attention/Attention}
-\afterpage{\blankpage}
-\include{./Chapters/05_Porcupine/Porcupine}
-\afterpage{\blankpage}
-\include{./Chapters/06_Discussion/Discussion}
-\afterpage{\blankpage}
-r\include{./Chapters/07_Appendix/Appendix}
-\afterpage{\blankpage}
+% \afterpage{\blankpage}
+% \include{./Chapters/02_Registration/Registration}
+% \afterpage{\blankpage}
+% \include{./Chapters/03_GLM/GLM}
+% \afterpage{\blankpage}
+% \include{./Chapters/04_Attention/Attention}
+% \afterpage{\blankpage}
+% \include{./Chapters/05_Porcupine/Porcupine}
+% \afterpage{\blankpage}
+% \include{./Chapters/06_Discussion/Discussion}
+% \afterpage{\blankpage}
+ \include{./Chapters/07_Appendix/Appendix}
+ \afterpage{\blankpage}
 
 \end{document}
