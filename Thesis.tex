@@ -44,7 +44,9 @@
 \renewcommand\thesubsection{\Roman{subsection}} % Roman numerals for subsections
 \titleformat{\section}[block]{\large\scshape}{\thesection.}{1em}{} % Change the look of the section titles
 \titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
-
+\newcommand\abstractfont{\fontsize{11pt}{10pt}\selectfont} % specific font for abstract
+\titleformat{\chapter}[block]
+	{\bfseries\huge}{\filright\huge\thechapter\hspace{1ex}\textnormal{|}}{1ex}{\huge\filright }
 % JS packages
 \usepackage{etex}
 \usepackage{tabto}
@@ -70,6 +72,8 @@
 
 % settings bibliography
 \usepackage[round]{natbib}
+\usepackage{bibentry}
+\nobibliography* % suppresses bibliography mention for bibentry commands
 
 % for figures: caption , subcaption
 \captionsetup[figure]{labelformat=simple, labelsep=colon, textfont=normalfont, font=footnotesize} %{stretch=1.1}
