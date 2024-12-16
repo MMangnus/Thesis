@@ -10,6 +10,7 @@
 *.blg
 *.pdf
 *.ai
+*.eps
 
 Thumbs.db
 Stylesheets/Signature.png
