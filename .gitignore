@@ -18,3 +18,5 @@ Stylesheets/Signature.png
 *.toc
 
 Thesis.pdf
+Thesis.fls
+Thesis.fdb_latexmk
