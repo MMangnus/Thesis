@@ -46,7 +46,9 @@
 \renewcommand\thesubsection{\Roman{subsection}} % Roman numerals for subsections
 \titleformat{\section}[block]{\large\scshape}{\thesection.}{1em}{} % Change the look of the section titles
 \titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
-\newcommand\abstractfont{\fontsize{11pt}{10pt}\selectfont} % specific font for abstract
+%\newcommand\abstractfont{\fontsize{11pt}{10pt}\selectfont} % specific font for abstract
+\newcommand\abstractfont{\setstretch{1.4} \fontsize{11pt}{10pt} \selectfont} % specific font for abstract
+
 \titleformat{\chapter}[block]
 	{\bfseries\huge}{\filright\huge\thechapter\hspace{1ex}\textnormal{|}}{1ex}{\huge\filright }
 % JS packages
