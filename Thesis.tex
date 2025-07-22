@@ -2,9 +2,18 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[openright,12pt,fleqn]{book} % use twoside in options for publishable version
-%\special{papersize=210mm,297mm}
-\linespread{1.15} % Line spacing - Palatino needs more space between lines
+ \documentclass[
+     fontsize=10pt,
+     twoside,
+     %toc=bibliography,
+     paper=170mm:240mm,
+     DIV=calc,
+     english,
+     numbers=noenddot,
+ ]{scrbook}
+ \areaset[10mm]{120mm}{172mm}
+ \linespread{1.20}
+
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 
 % leave 10pt blank space between paragraphs
@@ -23,15 +32,6 @@
 
 %geometry and layout
 \pagestyle{plain} % center all page numbering
-\usepackage[
-	letterpaper,
-	inner=30mm, % publishable: 30mm
-	outer=30mm, % publishable: 25mm
-	bottom=21.5mm,
-	footskip=13.5mm	
-]{geometry} % paperstyle and margins
-\voffset -14mm
-%\headsep 14mm
 
 \setcounter{secnumdepth}{0} % keep sections unnumbered but include in toc
 \setcounter{tocdepth}{1}
@@ -41,19 +41,18 @@
 \usepackage{booktabs} % Horizontal rules in tables
 \usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
 
-%\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
 \usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
 
-\usepackage{titlesec} % Allows customization of titles
-\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
-\renewcommand\thesubsection{\Roman{subsection}} % Roman numerals for subsections
-\titleformat{\section}[block]{\large\scshape}{\thesection.}{1em}{} % Change the look of the section titles
-\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
-%\newcommand\abstractfont{\fontsize{11pt}{10pt}\selectfont} % specific font for abstract
-\newcommand\abstractfont{\setstretch{1.4} \fontsize{11pt}{10pt} \selectfont} % specific font for abstract
+% Customize the chapter heading format
+\renewcommand*{\chapterformat}{%
+  \normalfont\huge\bfseries\thechapter\hspace{1ex}\textnormal{|}\hspace{1ex}%
+}
 
-\titleformat{\chapter}[block]
-	{\bfseries\huge}{\filright\huge\thechapter\hspace{1ex}\textnormal{|}}{1ex}{\huge\filright }
+% Format the chapter title itself
+\addtokomafont{chapter}{\huge\bfseries}
+
+\newcommand\abstractfont{\setstretch{1.4} \fontsize{9pt}{8pt} \selectfont} % specific font for abstract
+    
 % JS packages
 %\usepackage{etex}
 \usepackage{tabto}
@@ -72,11 +71,9 @@
 \usepackage[numbered,framed]{matlab-prettifier}
 \usepackage{subcaption}
 \usepackage{textcomp}
-%\usepackage{txfonts}
-\usepackage{geometry}
 \usepackage{nameref}
 \usepackage[finalnew]{Stylesheets/trackchanges}
-\usepackage[colorlinks=true,linkcolor=black,citecolor=darkgray,urlcolor=blue]{hyperref} % For hyperlinks in the PDF
+\usepackage[colorlinks=true,linkcolor=black,citecolor=darkgray,urlcolor=black]{hyperref} % For hyperlinks in the PDF
 \urlstyle{rm}
 \usepackage{anyfontsize} % make text a specific font size instead of small, tiny, huge etc.
 
@@ -85,24 +82,25 @@
 \usepackage{bibentry}
 \nobibliography* % suppresses bibliography mention for bibentry commands
 
-% for figures: caption , subcaption
-\captionsetup[figure]{labelformat=simple, labelsep=colon, textfont=normalfont, font=footnotesize} %{stretch=1.1}
-%\captionsetup[table]{labelformat=simple, labelsep=colon, textfont=normalfont}
-%\captionsetup[subfigure]{labelformat=simple, labelsep=colon, textfont=normalfont}
-
-\renewcommand{\thesection}{\arabic{section}}%... from subsections
-\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}%... from subsections
-\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}%... from subsections
-
+% for figures: caption, subcaption
+\captionsetup[figure]{labelformat=simple, labelsep=colon, textfont=normalfont, font=footnotesize}
 \definecolor{light-gray}{gray}{0.8}
 \graphicspath{{./Images/}}
 
 \def\degr{${}^\circ$}
 
+% for background with grey chapter labels
+\usepackage[contents={},opacity=1,scale=1,color=black]{background}
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
+\usetikzlibrary{arrows, calc, fit, matrix, positioning, shapes, shapes.arrows} % Load tikz libraries
+\input{background_labels.tex}
+
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
-\title{\vspace{-15mm}\fontsize{24pt}{10pt}\selectfont\textbf{}} % Article title
+\title{When Communication is Hard}
+\subtitle{\texorpdfstring{Neurocognitive Dynamics underlying \\ Language and Communication \\in Autism and Social Anxiety}{Neurocognitive Dynamics underlying Language and Communication in Autism and Social Anxiety}}
 
 \author{
 \large
@@ -118,22 +116,21 @@
 % BEGIN DOCUMENT
 %----------------------------------------------------------------------------------------
 
-%\renewcommand{\familydefault}{\sfdefault}
-%\usepackage[default,osfigures,scale=0.95]{Open Sans}
-\usepackage[T1]{fontenc}
-\usepackage{fourier}
-%\normalfont
-%\usepackage[sfdefault]{AlegreyaSans}
+% Fonts
+\usepackage{libertinus}
+\usepackage[scale=0.83,ttdefault]{sourcecodepro} % Source Code Pro (monospace)
 
 \begin{document}
 \setlength{\parindent}{0.5pt}
-%\thispagestyle{fancy} % All pages have headers and footers
 \renewcommand{\vec}[1]{\mathbf{#1}} %This command will make \vec typeset LaTeX vectors using bold instead of an arrow:
 
 \input{./Chapters/Titelpagina.tex}
 
+\phantomsection
+\addcontentsline{toc}{chapter}{Contents}
 \tableofcontents
 
+\AddLabels % to do: remove 0 label from toc (put in separate file?also front/main/backmatter?)
 %\afterpage{\blankpage}
 \include{./Chapters/01_Introduction/Introduction}
 %\afterpage{\blankpage}
@@ -145,7 +142,11 @@
 %\afterpage{\blankpage}
 \include{./Chapters/05_Discussion/Discussion}
 %\afterpage{\blankpage}
-\include{./Chapters/06_Appendix/Appendix}
+\RemoveLabels
+\include{./Chapters/06_Bibliography/Bibliography}
 %\afterpage{\blankpage}
+\include{./Chapters/07_ResearchDataManagement/ResearchDataManagement}
+%\afterpage{\blankpage}
+\include{./Chapters/08_DutchSummary/DutchSummary}
 
 \end{document}

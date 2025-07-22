@@ -1,0 +1,46 @@
+\newif\ifMaterial
+
+\newlength\LabelHeight
+\newlength\LabelWidth
+\newlength\LabelShiftEdge
+\newlength\LabelVertSpacing
+
+\setlength\LabelHeight{1.50cm}
+\setlength\LabelWidth{2.5cm}
+\setlength\LabelShiftEdge{10mm}
+\setlength\LabelVertSpacing{2mm}
+
+\newcommand\AddLabels{%
+\Materialtrue%
+\AddEverypageHook{%
+\ifMaterial%
+\ifodd\value{page} %
+ \backgroundsetup{
+  angle=0,
+  position={current page.east|-current page text area.north east},
+  hshift=-0.5*\LabelWidth+\LabelShiftEdge,
+  vshift=-\thechapter*(\LabelHeight+\LabelVertSpacing),
+  contents={%
+  \tikz\node[fill=gray,text=white,anchor=east,text width=\LabelWidth,
+    minimum height=\LabelHeight,
+    align=center,font=\huge] {\textnormal{\textsf{\textbf{\thechapter}}}\hspace*{\LabelShiftEdge}};
+  }%
+ }
+ \else
+ \backgroundsetup{
+  angle=0,
+  position={current page.west|-current page text area.north west},
+  hshift=0.5*\LabelWidth-\LabelShiftEdge,
+  vshift=-\thechapter*(\LabelHeight+\LabelVertSpacing),
+  contents={%
+  \tikz\node[fill=gray,text=white,anchor=west,text width=\LabelWidth,
+    minimum height=\LabelHeight,
+    align=center,font=\huge] {\hspace*{\LabelShiftEdge}\textnormal{\textsf{\textbf{\thechapter}}}};
+  }%
+ }
+ \fi
+ \BgMaterial%
+\else\relax\fi}%
+}
+
+\newcommand\RemoveLabels{\Materialfalse}
