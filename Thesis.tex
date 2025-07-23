@@ -73,7 +73,7 @@
 \usepackage{textcomp}
 \usepackage{nameref}
 \usepackage[finalnew]{Stylesheets/trackchanges}
-\usepackage[colorlinks=true,linkcolor=black,citecolor=darkgray,urlcolor=black]{hyperref} % For hyperlinks in the PDF
+\usepackage[colorlinks=true,linkcolor=black,citecolor=darkgray,urlcolor=black,pdftitle={When Communication is Hard: Neurocognitive Dynamics underlying Language and Communication in Autism and Social Anxiety},pdfauthor={Margot Mangnus},pdfdisplaydoctitle]{hyperref} % For hyperlinks in the PDF
 \urlstyle{rm}
 \usepackage{anyfontsize} % make text a specific font size instead of small, tiny, huge etc.
 
@@ -99,18 +99,9 @@
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
+\author{Margot Mangnus}
 \title{When Communication is Hard}
 \subtitle{\texorpdfstring{Neurocognitive Dynamics underlying \\ Language and Communication \\in Autism and Social Anxiety}{Neurocognitive Dynamics underlying Language and Communication in Autism and Social Anxiety}}
-
-\author{
-\large
-%\textsc
-{Margot Mangnus$^1$}\\[2mm] % Your name
-\small $^1$ Donders Institute for Brain, Cognition and Behaviour, Radboud University Nijmegen, The Netherlands\\ % Your institution
-%\normalsize \href{mailto:}{} % Your email address
-\vspace{-5mm}
-}
-\date{\today}
 
 %----------------------------------------------------------------------------------------
 % BEGIN DOCUMENT
@@ -124,13 +115,13 @@
 \setlength{\parindent}{0.5pt}
 \renewcommand{\vec}[1]{\mathbf{#1}} %This command will make \vec typeset LaTeX vectors using bold instead of an arrow:
 
-\input{./Chapters/Titelpagina.tex}
+\frontmatter{}
+\input{./Chapters/Titlepage.tex}
+\input{./Chapters/Committee.tex}
+\input{./Chapters/TableOfContents.tex}
 
-\phantomsection
-\addcontentsline{toc}{chapter}{Contents}
-\tableofcontents
-
-\AddLabels % to do: remove 0 label from toc (put in separate file?also front/main/backmatter?)
+\mainmatter{}
+\AddLabels 
 %\afterpage{\blankpage}
 \include{./Chapters/01_Introduction/Introduction}
 %\afterpage{\blankpage}
@@ -142,6 +133,8 @@
 %\afterpage{\blankpage}
 \include{./Chapters/05_Discussion/Discussion}
 %\afterpage{\blankpage}
+
+\backmatter{}
 \RemoveLabels
 \include{./Chapters/06_Bibliography/Bibliography}
 %\afterpage{\blankpage}
