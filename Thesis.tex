@@ -5,7 +5,6 @@
  \documentclass[
      fontsize=10pt,
      twoside,
-     %toc=bibliography,
      paper=170mm:240mm,
      DIV=calc,
      english,
@@ -19,6 +18,15 @@
 % leave 10pt blank space between paragraphs
 \usepackage[skip=10pt plus1pt, indent=0pt]{parskip}	
 
+% define headers
+\usepackage[automark]{scrlayer-scrpage}
+\clearpairofpagestyles % clear default headers and footers
+\automark[chapter]{chapter} % optional: controls what shows in header
+\lehead{\leftmark}   % left header on even pages
+\rohead{\rightmark}  % right header on odd pages
+\cfoot{\pagemark}    % centered page number
+\pagestyle{scrheadings}
+
 % remove blank pages in pdf
 \let\cleardoublepage=\clearpage
 
@@ -30,16 +38,13 @@
     \addtocounter{page}{-1}
     \newpage}
 
-%geometry and layout
-\pagestyle{plain} % center all page numbering
-
 \setcounter{secnumdepth}{0} % keep sections unnumbered but include in toc
 \setcounter{tocdepth}{1}
 
 \usepackage{multicol} % Used for the two-column layout of the document
 \usepackage[hang, font=small,labelfont=bf,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Horizontal rules in tables
-\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with [H] (e.g. \begin{table}[H])
 
 \usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
 
@@ -47,18 +52,15 @@
 \renewcommand*{\chapterformat}{%
   \normalfont\huge\bfseries\thechapter\hspace{1ex}\textnormal{|}\hspace{1ex}%
 }
-
-% Format the chapter title itself
 \addtokomafont{chapter}{\huge\bfseries}
 
-\newcommand\abstractfont{\setstretch{1.4} \fontsize{9pt}{8pt} \selectfont} % specific font for abstract
+% specific font for abstract
+\newcommand\abstractfont{\setstretch{1.4} \fontsize{9pt}{8pt} \selectfont} 
     
 % JS packages
-%\usepackage{etex}
 \usepackage{tabto}
 \usepackage{paralist}
 
-%\usepgfmodule{plot}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{setspace}
@@ -87,6 +89,7 @@
 \definecolor{light-gray}{gray}{0.8}
 \graphicspath{{./Images/}}
 
+% define degree symbol
 \def\degr{${}^\circ$}
 
 % for background with grey chapter labels
@@ -95,6 +98,10 @@
 \usepackage{tikzpagenodes}
 \usetikzlibrary{arrows, calc, fit, matrix, positioning, shapes, shapes.arrows} % Load tikz libraries
 \input{background_labels.tex}
+
+% Fonts
+\usepackage{libertinus}
+\usepackage[scale=0.83,ttdefault]{sourcecodepro} % Source Code Pro (monospace)
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
@@ -107,24 +114,19 @@
 % BEGIN DOCUMENT
 %----------------------------------------------------------------------------------------
 
-% Fonts
-\usepackage{libertinus}
-\usepackage[scale=0.83,ttdefault]{sourcecodepro} % Source Code Pro (monospace)
-
 \begin{document}
 \setlength{\parindent}{0.5pt}
-\renewcommand{\vec}[1]{\mathbf{#1}} %This command will make \vec typeset LaTeX vectors using bold instead of an arrow:
 
 \frontmatter{}
 \input{./Chapters/Titlepage.tex}
 \input{./Chapters/Committee.tex}
+\input{./Chapters/Epigraph.tex}
 \input{./Chapters/TableOfContents.tex}
 
 \mainmatter{}
 \AddLabels 
-%\afterpage{\blankpage}
 \include{./Chapters/01_Introduction/Introduction}
-%\afterpage{\blankpage}
+
 \include{./Chapters/02_MentalizingASC/MentalizingASC}
 %\afterpage{\blankpage}
 \include{./Chapters/03_MentalizingSA/MentalizingSA}
