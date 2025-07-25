@@ -118,35 +118,28 @@
 \setlength{\parindent}{0.5pt}
 
 \frontmatter{}
-\input{./Chapters/Titlepage.tex}
-\input{./Chapters/Committee.tex}
-\input{./Chapters/Epigraph.tex}
-\input{./Chapters/TableOfContents.tex}
+\input{./Chapters/FrontMatter/Titlepage.tex}
+\input{./Chapters/FrontMatter/Committee.tex}
+\input{./Chapters/FrontMatter/Epigraph.tex}
+\input{./Chapters/FrontMatter/TableOfContents.tex}
 
 \mainmatter{}
 \AddLabels 
 \include{./Chapters/01_Introduction/Introduction}
-
 \include{./Chapters/02_MentalizingASC/MentalizingASC}
-%\afterpage{\blankpage}
 \include{./Chapters/03_MentalizingSA/MentalizingSA}
-%\afterpage{\blankpage}
 \include{./Chapters/04_LanguageASC/LanguageASC}
-%\afterpage{\blankpage}
 \include{./Chapters/05_Discussion/Discussion}
-%\afterpage{\blankpage}
 
 \backmatter{}
+\include{./Chapters/BackMatter/Bibliography}
 \RemoveLabels
-\include{./Chapters/06_Bibliography/Bibliography}
-%\afterpage{\blankpage}
-\include{./Chapters/07_ResearchDataManagement/ResearchDataManagement}
-%\afterpage{\blankpage}
-\include{./Chapters/08_NederlandseSamenvatting/NederlandseSamenvatting}
-\include{./Chapters/CV}
-\include{./Chapters/Publications}
-\include{./Chapters/Acknowledgements}
-\include{./Chapters/DGN}
+\include{./Chapters/BackMatter/ResearchDataManagement}
+\include{./Chapters/BackMatter/NederlandseSamenvatting}
+\include{./Chapters/BackMatter/CV}
+\include{./Chapters/BackMatter/Publications}
+\include{./Chapters/BackMatter/Acknowledgements}
+\include{./Chapters/BackMatter/DGN}
 
 
 \end{document}
