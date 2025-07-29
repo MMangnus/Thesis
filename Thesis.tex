@@ -38,6 +38,9 @@
     \addtocounter{page}{-1}
     \newpage}
 
+% Use for blank pages
+\usepackage{emptypage}
+
 \setcounter{secnumdepth}{0} % keep sections unnumbered but include in toc
 \setcounter{tocdepth}{1}
 
@@ -122,20 +125,34 @@
 \input{./Chapters/FrontMatter/Committee.tex}
 \input{./Chapters/FrontMatter/Epigraph.tex}
 \input{./Chapters/FrontMatter/TableOfContents.tex}
+\clearpage\null\thispagestyle{empty}
+\clearpage\null\thispagestyle{empty}
 
 \mainmatter{}
-\AddLabels 
+\AddLabels
 \include{./Chapters/01_Introduction/Introduction}
+\clearpage\null\thispagestyle{empty}
+\clearpage\null\thispagestyle{empty}
 \include{./Chapters/02_MentalizingASC/MentalizingASC}
+\clearpage\null\thispagestyle{empty}
 \include{./Chapters/03_MentalizingSA/MentalizingSA}
+\clearpage\null\thispagestyle{empty}
 \include{./Chapters/04_LanguageASC/LanguageASC}
+\clearpage\null\thispagestyle{empty}
 \include{./Chapters/05_Discussion/Discussion}
+\clearpage\null\thispagestyle{empty}
 
 \backmatter{}
 \RemoveLabels
 \include{./Chapters/BackMatter/Bibliography}
+\clearpage\null\thispagestyle{empty}
+\clearpage\null\thispagestyle{empty}
 \include{./Chapters/BackMatter/ResearchDataManagement}
+\clearpage\null\thispagestyle{empty}
+\clearpage\null\thispagestyle{empty}
 \include{./Chapters/BackMatter/NederlandseSamenvatting}
+\clearpage\null\thispagestyle{empty}
+\clearpage\null\thispagestyle{empty}
 \include{./Chapters/BackMatter/CV}
 \include{./Chapters/BackMatter/Publications}
 \include{./Chapters/BackMatter/Acknowledgements}
